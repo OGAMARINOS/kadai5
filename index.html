@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Kadai1-1</title>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css'>
+<link rel='stylesheet' href='https://unpkg.com/@mdi/font@6.x/css/materialdesignicons.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900'>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- Vueで指定された"app"要素、この中でのみVueが有効 -->
+<div id="app">
+  <v-app>
+    <v-content>
+      <v-container>
+        <v-row
+          class="text-h3 mb-3 mt-3"
+          justify="center"
+          >
+          顧客一覧表
+        </v-row>
+        <!-- データテーブルの部分 -->
+       　<v-data-table
+          :headers="headers"
+          :items="dataList"
+          　class="elevation-1"
+         >
+         <template v-slot:top>
+         <v-toolbar flat>
+         <v-toolbar-title>顧客一覧表</v-toolbar-title>
+         <v-divider class="mx-4" inset vertical></v-divider>
+         <v-spacer></v-spacer>
+         <v-btn color="primary" @click="readData">データを更新</v-btn>
+         <v-btn color="success" @click="navigateToNewEntry">新規入力</v-btn> 
+         </v-toolbar>
+         </template>
+         <template v-slot:item.actions="{ item }">
+         <v-btn @click="navigateToUpdateEntry(item.ID)" color="blue" small>更新</v-btn>
+         <v-btn @click="deleteData(item.ID)" color="red" small>削除</v-btn>
+         </template>
+        </v-data-table>
+        <!-- データテーブルの部分ここまで -->
+        
+      </v-container>
+    </v-content>
+  </v-app>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Kadai1-2</title>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css'>
+<link rel='stylesheet' href='https://unpkg.com/@mdi/font@6.x/css/materialdesignicons.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900'>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+  <v-app>
+    <v-content>
+      <v-container>
+        <v-row class="text-h3 mb-3 mt-3" justify="center">
+          新規顧客入力
+        </v-row>
+        <v-form @submit.prevent="addData">
+          <v-text-field v-model="ID" label="IDを入力" required></v-text-field>
+          <v-text-field v-model="Name" label="名前を入力" required></v-text-field>
+          <v-text-field v-model="age" label="年齢を入力" required></v-text-field>
+          <v-text-field v-model="number" label="郵便番号を入力" required></v-text-field>
+          <v-text-field v-model="adress" label="アドレスを入力" required></v-text-field>
+          <v-btn type="submit" color="primary">保存</v-btn>
+        </v-form>
+      </v-container>
+    </v-content>
+  </v-app>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
