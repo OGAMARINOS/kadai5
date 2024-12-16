@@ -21,6 +21,7 @@ new Vue({
     fetchData: async function(id) {
       const response = await axios.get(`https://m3h-ogasawarafunctionapi.azurewebsites.net/api/SELECT/${id}`);
       const data = response.data;
+      this.ID = data.ID;
       this.Name = data.Name;
       this.age = data.age;
       this.number = data.number;

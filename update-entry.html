@@ -16,25 +16,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>更新ページ</title>
+  <!-- Vuetify CSSのインポート -->
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.5.10/dist/vuetify.min.css" rel="stylesheet">
 </head>
 <body>
   <div id="app">
     <v-app>
-      <v-content>
+      <v-main>
         <v-container>
           <v-row class="text-h3 mb-3 mt-3" justify="center">
             顧客情報更新
           </v-row>
           <v-form @submit.prevent="updateData">
- 　　　　　 <v-text-field v-model="ID" label="IDを入力" required readonly></v-text-field>
-  　　　　　<v-text-field v-model="Name" label="名前を入力" required></v-text-field>
-  　　　　　<v-text-field v-model="age" label="年齢を入力" required></v-text-field>
-  　　　　　<v-text-field v-model="number" label="郵便番号を入力" required></v-text-field>
-  　　　　　<v-text-field v-model="adress" label="アドレスを入力" required></v-text-field>
-  　　　　　<v-btn type="submit" color="primary">更新</v-btn>
-　　　　　　</v-form>
+            <v-text-field :value="ID" label="IDを入力" required readonly></v-text-field>
+            <v-text-field v-model="Name" label="名前を入力" required></v-text-field>
+            <v-text-field v-model="age" label="年齢を入力" required></v-text-field>
+            <v-text-field v-model="number" label="郵便番号を入力" required></v-text-field>
+            <v-text-field v-model="adress" label="アドレスを入力" required></v-text-field>
+            <v-btn type="submit" color="primary">更新</v-btn>
+          </v-form>
         </v-container>
-      </v-content>
+      </v-main>
     </v-app>
   </div>
 </body>
