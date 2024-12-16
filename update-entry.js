@@ -34,10 +34,12 @@ new Vue({
       }
     },
     updateData: async function(event) {
+      console.log('Event:', event); // デバッグ用
       // {isTrusted: true} が渡された場合にIDを上書き
       if (event && event.isTrusted) {
         const urlParams = new URLSearchParams(window.location.search);
         const idFromUrl = urlParams.get('ID');
+        console.log('ID from URL in updateData:', idFromUrl); // デバッグ用
         if (idFromUrl) {
           this.ID = idFromUrl;
         }
