@@ -12,6 +12,7 @@ new Vue({
     // URLパラメータからIDを取得
     const urlParams = new URLSearchParams(window.location.search);
     const idFromUrl = urlParams.get('ID');
+    console.log('ID from URL:', idFromUrl); // デバッグ用
     if (idFromUrl) {
       this.ID = idFromUrl;
       this.fetchData(this.ID);
@@ -22,6 +23,7 @@ new Vue({
       try {
         const response = await axios.get(`https://m3h-ogasawarafunctionapi.azurewebsites.net/api/SELECT/${id}`);
         const data = response.data;
+        console.log('Fetched data:', data); // デバッグ用
         this.ID = data.ID;
         this.Name = data.Name;
         this.age = data.age;
@@ -31,10 +33,16 @@ new Vue({
         console.error('Error fetching data:', error.response ? error.response.data : error.message);
       }
     },
-    updateID: function(event) {
-      this.ID = event.target.value;
-    },
-    updateData: async function() {
+    updateData: async function(event) {
+      // {isTrusted: true} が渡された場合にIDを上書き
+      if (event && event.isTrusted) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const idFromUrl = urlParams.get('ID');
+        if (idFromUrl) {
+          this.ID = idFromUrl;
+        }
+      }
+
       const param = {
         ID: this.ID,
         Name: this.Name,
