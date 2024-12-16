@@ -28,7 +28,7 @@
             顧客情報更新
           </v-row>
           <v-form @submit.prevent="updateData">
-            <v-text-field :value="ID" label="IDを入力" required></v-text-field>
+            <v-text-field :value="ID" label="IDを入力" required @input="updateID"></v-text-field>
             <v-text-field v-model="Name" label="名前を入力" required></v-text-field>
             <v-text-field v-model="age" label="年齢を入力" required></v-text-field>
             <v-text-field v-model="number" label="郵便番号を入力" required></v-text-field>

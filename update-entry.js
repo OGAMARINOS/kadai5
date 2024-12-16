@@ -27,6 +27,9 @@ new Vue({
       this.number = data.number;
       this.adress = data.adress;
     },
+    updateID: function(event) {
+      this.ID = event.target.value;
+    },
     updateData: async function() {
   const param = {
     ID: this.ID,
