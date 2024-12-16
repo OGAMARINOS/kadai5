@@ -19,32 +19,36 @@ new Vue({
   },
   methods: {
     fetchData: async function(id) {
-      const response = await axios.get(`https://m3h-ogasawarafunctionapi.azurewebsites.net/api/SELECT/${id}`);
-      const data = response.data;
-      this.ID = data.ID;
-      this.Name = data.Name;
-      this.age = data.age;
-      this.number = data.number;
-      this.adress = data.adress;
+      try {
+        const response = await axios.get(`https://m3h-ogasawarafunctionapi.azurewebsites.net/api/SELECT/${id}`);
+        const data = response.data;
+        this.ID = data.ID;
+        this.Name = data.Name;
+        this.age = data.age;
+        this.number = data.number;
+        this.adress = data.adress;
+      } catch (error) {
+        console.error('Error fetching data:', error.response ? error.response.data : error.message);
+      }
     },
     updateID: function(event) {
       this.ID = event.target.value;
     },
     updateData: async function() {
-  const param = {
-    ID: this.ID,
-    Name: this.Name,
-    age: this.age,
-    number: this.number,
-    adress: this.adress
-  };
-  try {
-    const response = await axios.put('https://m3h-ogasawarafunctionapi.azurewebsites.net/api/UPDATE', param);
-    console.log(response.data);
-    window.location.href = 'index.html'; // 更新後に元のページに戻る
-  } catch (error) {
-    console.error('Error updating data:', error.response ? error.response.data : error.message);
-  }
-},
+      const param = {
+        ID: this.ID,
+        Name: this.Name,
+        age: this.age,
+        number: this.number,
+        adress: this.adress
+      };
+      try {
+        const response = await axios.put('https://m3h-ogasawarafunctionapi.azurewebsites.net/api/UPDATE', param);
+        console.log(response.data);
+        window.location.href = 'index.html'; // 更新後に元のページに戻る
+      } catch (error) {
+        console.error('Error updating data:', error.response ? error.response.data : error.message);
+      }
+    }
   }
 });
