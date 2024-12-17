@@ -2,7 +2,6 @@ new Vue({
   el: '#app',
   vuetify: new Vuetify(),
   data: {
-    ID: '',
     Name: '',
     age: '',
     number: '',
@@ -10,19 +9,24 @@ new Vue({
     error: null
   },
   methods: {
+    // データベースを更新する関数
     updateData: async function() {
-      if (!this.ID) {
+      // IDフィールドの値を取得
+      const ID = this.$refs.idField.$el.querySelector('input').value;
+      if (!ID) {
         this.error = "IDを入力してください";
         return;
       }
+      // 更新用のパラメーターを作成
       const param = {
-        ID: this.ID,
+        ID: ID,
         Name: this.Name,
         age: this.age,
         number: this.number,
         adress: this.adress
       };
       try {
+        // UPDATE用のAPIを呼び出し
         const response = await axios.put('https://m3h-ogasawarafunctionapi.azurewebsites.net/api/UPDATE', param);
         if (response.data.success) {
           window.location.href = 'index.html'; // 更新後に元のページに戻る

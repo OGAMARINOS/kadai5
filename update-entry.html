@@ -27,7 +27,7 @@
             顧客情報更新
           </v-row>
           <v-form @submit.prevent="updateData">
-            <v-text-field v-model="ID" label="IDを入力" required></v-text-field>
+            <v-text-field ref="idField" label="IDを入力" required></v-text-field>
             <v-text-field v-model="Name" label="名前を入力" required></v-text-field>
             <v-text-field v-model="age" label="年齢を入力" required></v-text-field>
             <v-text-field v-model="number" label="郵便番号を入力" required></v-text-field>
@@ -39,6 +39,10 @@
       </v-content>
     </v-app>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.5.10/dist/vuetify.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="update.js"></script>
 </body>
 </html>
 <!-- partial -->
